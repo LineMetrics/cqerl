@@ -980,6 +980,6 @@ stop_during_startup(Reason, State = #client_state{users = Users}) ->
 
 next_heartbeat_within(#client_state{last_socket_send = LastSocketSend,
                                     heartbeat_interval = Interval}) ->
-    CurrentTime = os:system_time(millisecond),
+    CurrentTime = os:system_time(milli_seconds),
     TimeLeft = Interval - (CurrentTime - LastSocketSend),
     max(0, TimeLeft).
