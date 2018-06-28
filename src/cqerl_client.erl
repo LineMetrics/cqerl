@@ -833,7 +833,7 @@ switch_to_live_state(State=#client_state{users=Users, keyspace=Keyspace,
 
 send_to_db(ClientState, Data) when is_binary(Data) ->
     do_send_to_db(ClientState, Data),
-    LastSocketSend = os:system_time(millisecond),
+    LastSocketSend = os:system_time(milli_seconds),
     ClientState#client_state{last_socket_send = LastSocketSend}.
 
 do_send_to_db(#client_state{trans=tcp, socket=Socket}, Data) when is_binary(Data) ->
